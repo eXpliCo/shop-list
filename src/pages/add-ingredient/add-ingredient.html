@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Add Ingredient</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-item>
+      <ion-label stacked>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="ingredient.name" value="" required></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Units</ion-label>
+        <ion-input type="text" [(ngModel)]="unitToAdd" value=""></ion-input>
+    </ion-item>
+    <button ion-button (click)="addUnit(unitToAdd)">Add</button>
+    <ion-badge *ngFor="let unit of ingredient.units" item-end>{{ unit }} <ion-badge color="danger" (click)="removeUnit(unit)">-</ion-badge></ion-badge>
+
+    <ion-footer>
+      <ion-toolbar>
+        <ion-buttons end>
+          <button ion-button icon-right (click)="saveIngredient()">
+            Save
+            <ion-icon name="send"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-content>
+  

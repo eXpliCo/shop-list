@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Recipe</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="createShoppingList()">Create Shopping List</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let recipe of recipes" [ngClass]="{'selected': recipe.selected}" (click)="recipe.selected = !recipe.selected">
+      <ion-thumbnail item-start>
+        <img src="img/thumbnail-totoro.png">
+      </ion-thumbnail>
+      <h2>{{ recipe.name }}</h2>
+      <p>This should be a description later.</p>
+      <ul [hidden]="!recipe.showIngredients">
+        <li *ngFor="let ingredient of recipe.ingredients">
+          {{ ingredient.name }}
+          {{ ingredient.amount }}
+          {{ ingredient.unit }}
+        </li>
+      </ul>
+      <button ion-button clear item-end (click)="toggleIngredients(recipe)">View</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

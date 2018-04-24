@@ -1,0 +1,15 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Shopping List</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <p>This is a shopping list</p>
+    <ul>
+        <li *ngFor="let ingredient of ingredients">{{ ingredient.name }}: {{ ingredient.amount }} {{ ingredient.unit }}</li>
+    </ul>
+</ion-content>

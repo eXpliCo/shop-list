@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Add Recipe</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-item>
+      <ion-label stacked>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="recipeName" value=""></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Ingredient</ion-label>
+      <ion-select [(ngModel)]="ingredient" interface="popover">
+        <ion-option *ngFor="let availableIngredient of availableIngredients" [value]="availableIngredient">{{ availableIngredient.name }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Amount</ion-label>
+      <ion-input type="number" [(ngModel)]="amount" value=""></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Unit</ion-label>
+      <ion-select [(ngModel)]="unit" interface="popover">
+        <ion-option *ngFor="let availableUnit of ingredient.units" [value]="availableUnit">{{ availableUnit }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-buttons end>
+      <button ion-button (click)="addIngredient()" end>Add</button>
+    </ion-buttons>
+
+    <h3>Added</h3>
+    <ion-list>
+      <button ion-item *ngFor="let item of ingredients">
+        {{ item.name }} {{ item.amount }} {{ item.unit }}
+      </button>   
+    </ion-list>
+
+    <ion-footer>
+      <ion-toolbar>
+        <ion-buttons end>
+          <button ion-button icon-right (click)="saveRecipe()">
+            Save
+            <ion-icon name="send"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-content>
+  
