@@ -14,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { RecipeService } from '../services/recipe.service';
 import { IngredientService } from '../services/ingredients.service';
+import { ReactiveFormsModule } from '@angular/forms';
  
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { IngredientService } from '../services/ingredients.service';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
